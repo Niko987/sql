@@ -19,27 +19,27 @@ object sqlformat extends App{
 
           //commit branch 2
 
-        case selectpat(_*) => {processAttribute = "select"
+        case selectpat(_*) => processAttribute = "select"
           val selectSplit = lowercaseLine.split("select")
-          if (selectSplit.length > 0){
+          if (selectSplit.nonEmpty){
               lowercaseLine = selectSplit(1)
           }
-        }
 
-        case frompat(_*) => {
+
+        case frompat(_*) =>
           processAttribute = "from"
           val fromSplit = lowercaseLine.split("from")
-          if (fromSplit.length > 0) {
+          if (fromSplit.nonEmpty) {
             lowercaseLine = fromSplit(1)
           }
-        }
-        case wherepat(_*) => {
+
+        case wherepat(_*) =>
           processAttribute = "where"
           val whereSplit = lowercaseLine.split("where")
-          if (whereSplit.length > 0) {
+          if (whereSplit.nonEmpty) {
             lowercaseLine = whereSplit(1)
           }
-        }
+
         case _ => ""
       }
 
