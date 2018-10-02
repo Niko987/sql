@@ -17,6 +17,8 @@ object sqlformat extends App{
       var lowercaseLine = line.toLowerCase
       lowercaseLine match {
 
+          //commit branch 2
+
         case selectpat(_*) => {processAttribute = "select"
           val selectSplit = lowercaseLine.split("select")
           if (selectSplit.length > 0){
